@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Footballer Show Page </title>
+  </head>
+  <body>
+    Welcome, <%=@user.username%>
+    <%@players.each_with_index do |player, index|%>
+      <p><%=index %>, <%=player.name%></p>
+    <%end%>
+  </body>
+</html>
