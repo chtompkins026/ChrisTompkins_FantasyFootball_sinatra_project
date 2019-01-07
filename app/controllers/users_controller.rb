@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  get '/signup' do
+  get 'users/signup' do
     if logged_in?
       redirect '/users/team'
     else
