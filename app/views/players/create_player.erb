@@ -7,21 +7,76 @@
     <% if flash[:error]%>
       <h2> <%=flash[:error]%> </h2>
     <% end %>
-    
+
     <h3> Create a Player</h3>
-
+    <div class="container">
       <form method="post" action="/team/new">
-
-      <label for="name"> Name: </label>
-      <input type="text" id="name" name="name">
-
-      <label for="team"> Team: </label>
-      <input type="text" id="team" name="team">
-
-      <label for="position"> Position: </label>
-      <input type="text" id="position" name="position">
-
-      <input type="submit" value="Add Player" id="submit">
-    </form>
+        <div class="row">
+          <div class="col-25">
+            <label for="name"> Name: </label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="name" name="name" placeholder="Player's Name">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="team">Team</label>
+          </div>
+          <div class="col-75">
+            <select id="team" name="team">
+              <option value="Arizona Cardinals"> Arizona Cardinals </option>
+              <option value="Atlanta Falcons">Atlanta Falcons</option>
+              <option value="Baltimore Ravens">Baltimore Ravens</option>
+              <option value="Buffalo Bills">Buffalo Bills</option>
+              <option value="Carolina Panthers"> Carolina Panthers </option>
+              <option value="Chicago Bears"> Chicago Bears</option>
+              <option value="Cincinnati Bengals">Cincinnati Bengals</option>
+              <option value="Cleveland Browns">Cleveland Browns</option>
+              <option value="Dallas Cowboys"> Dallas Cowboys </option>
+              <option value="Detroit Lions">Detroit Lions</option>
+              <option value="Green Bay Packers">Green Bay Packers</option>
+              <option value="Houston Texans">Houston Texans</option>
+              <option value="Indianapolis Colts"> Indianapolis Colts </option>
+              <option value="Jacksonville Jaguars"> Jacksonville Jaguars</option>
+              <option value="Kansas City Chiefs">Kansas City Chiefs</option>
+              <option value=" Los Angeles Chargers"> Los Angeles Chargers</option>
+              <option value="Los Angeles Rams">Los Angeles Rams</option>
+              <option value="Miami Dolphins">Miami Dolphins</option>
+              <option value="Minnesota Vikings"> Minnesota Vikings</option>
+              <option value=" New England Patriots"> New England Patriots</option>
+              <option value="New Orleans Saints"> New Orleans Saints </option>
+              <option value="New York Giants"> New York Giants</option>
+              <option value="New York Jets">New York Jets</option>
+              <option value="Oakland Raiders">Oakland Raiders</option>
+              <option value="Philadelphia Eagles"> Philadelphia Eagles </option>
+              <option value="Pittsburgh Steelers"> Pittsburgh Steelers</option>
+              <option value=" San Francisco 49ers"> San Francisco 49ers</option>
+              <option value="Seattle Seahawks">Seattle Seahawks</option>
+              <option value="Tampa Bay Bucaneers"> Tampa Bay Bucaneers </option>
+              <option value="Tennesse Titans"> Tennesse Titans </option>
+              <option value="Washington Redskins">Washington Redskins</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="position">position</label>
+          </div>
+          <div class="col-75">
+            <select id="position" name="position">
+              <option value="QB"> QB </option>
+              <option value="RB"> RB </option>
+              <option value="WR"> WR </option>
+              <option value="TE"> TE </option>
+              <option value="K"> K </option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Add Player" id="submit">
+        </div>
+      </form>
+    </div>
   </body>
 </html>
