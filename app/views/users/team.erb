@@ -4,9 +4,19 @@
     <title> Footballer Show Page </title>
   </head>
   <body>
+
     Welcome, <%=@user.username%>
     <%@players.each_with_index do |player, index|%>
-      <p><%=index %>, <%=player.name%></p>
+      <p> <%= index + 1%> - <%=player.position %>: <a href="/team/<%=player.id%>"><%=player.name%></a></p>
+
+      <form method="post" action="/team/<%=player.id%>/delete">
+        <input type="submit" value="Delete Player">
+      </form>
+      <br>
     <%end%>
+
+    <p><a href="/team/new"> Create Player </a></p>
+
+    <p><a href="/logout"> Logout </a></p>
   </body>
 </html>

@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
 
-  get 'users/signup' do
+  get '/users/signup' do
     if logged_in?
-      redirect '/users/team'
+      redirect '/team'
     else
       erb :'/users/sign_up'
     end
   end
 
-  post '/signup' do
+  post '/users/signup' do
     if params["username"].empty?
       flash[:error] = "Username is empty" #store keys and strings that will be passed into next page (dictionary already made for me)
       redirect "/signup"
@@ -42,6 +42,13 @@ class UsersController < ApplicationController
      end
   end
 
-
+  get '/logout' do
+    if logged_in?
+      session.destroy
+      redirect to '/users/login'
+    else
+      redirect to '/'
+    end
+  end
 
 end #end of the user class

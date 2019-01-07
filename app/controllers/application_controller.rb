@@ -1,19 +1,19 @@
 require "./config/environment"
-require "sinatra/base"
-require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
 
   configure do
       set :public_folder, 'public'
-      set :views, File.expand_path('../../views', __FILE__)
+      set :views, 'app/views'
       enable :sessions
+      set :session_secret, "panda"
       register Sinatra::Flash
     end
 
     get '/' do
       erb :index
     end
+
 
 # Helper Section
     helpers do

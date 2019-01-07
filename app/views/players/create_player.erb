@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Create Player </title>
+  </head>
+  <body>
+    <% if flash[:error]%>
+      <h2> <%=flash[:error]%> </h2>
+    <% end %>
+    
+    <h3> Create a Player</h3>
+
+      <form method="post" action="/team/new">
+
+      <label for="name"> Name: </label>
+      <input type="text" id="name" name="name">
+
+      <label for="team"> Team: </label>
+      <input type="text" id="team" name="team">
+
+      <label for="position"> Position: </label>
+      <input type="text" id="position" name="position">
+
+      <input type="submit" value="Add Player" id="submit">
+    </form>
+  </body>
+</html>
