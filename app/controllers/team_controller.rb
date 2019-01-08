@@ -17,7 +17,8 @@ class TeamController < ApplicationController
   post '/team/new' do
     @user = current_user
     new_player = Player.create(name: params[:name], team: params[:team], position: params[:position], user_id: @user.id)
-
+    @user.players.push(new_player)
+    
     unless new_player.valid?
       flash[:error] = "Duplicate player can not be added"
       redirect to '/team/new'

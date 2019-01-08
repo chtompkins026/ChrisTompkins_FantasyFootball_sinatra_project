@@ -8,6 +8,22 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/users/:slug' do
+    if logged_in?
+      @user = current_user
+      if @user = User.find_by_slug(params[:slug])
+        @players = @user.players
+        redirect '/team'
+      else
+        flash[:error] = "You must be logged in to view your football page"
+        redirect '/login'
+      end
+    else
+      flash[:error] = "You must be logged in to view your football page"
+      redirect '/login'
+    end
+  end
+
   post '/users/signup' do
     if params["username"].empty?
       flash[:error] = "Username is empty" #store keys and strings that will be passed into next page (dictionary already made for me)

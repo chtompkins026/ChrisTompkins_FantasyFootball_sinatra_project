@@ -1,9 +1,23 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+
     <title>Fantasy Football Center</title>
   </head>
   <body>
+    <ul class="main_navbar">
+      <li id="main_navbar_li"><a class="active" href="/">Home</a></li>
+      <li id="main_navbar_li"><a href="/users/signup">Sign Up</a></li>
+      <li id="main_navbar_li"><a href="/users/login">Log In</a></li>
+      <% if logged_in? %>
+        <% @user = current_user%>
+        <li id ="main_navbar_li"><a href="/users/<%=@user.slug%>"> My Team </a> </li>
+      <%end%>
+    </ul>
 
     <%= yield %>
 
