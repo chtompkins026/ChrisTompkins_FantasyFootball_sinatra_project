@@ -9,6 +9,9 @@
     <%@players.each_with_index do |player, index|%>
       <p> <%= index + 1%> - <%=player.position %>: <a href="/team/<%=player.id%>"><%=player.name%></a></p>
 
+      <p><a href="/team/<%=player.id%>/edit"> Edit Player </a></p>
+      
+      <br>
       <form method="post" action="/team/<%=player.id%>/delete">
         <input type="submit" value="Delete Player">
       </form>
