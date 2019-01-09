@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> Create Player </title>
-  </head>
-  <body>
-    <% if flash[:error]%>
-      <h2> <%=flash[:error]%> </h2>
-    <% end %>
 
+<% if flash[:error]%>
+    <h2> <%=flash[:error]%> </h2>
+<% end %>
     <h3> Create a Player</h3>
     <div class="container">
       <form method="post" action="/team/new">
@@ -78,5 +72,3 @@
         </div>
       </form>
     </div>
-  </body>
-</html>
