@@ -1,25 +1,91 @@
 body {
-  background: #80ced6;
+  background: #F0F8FF;
   font-family: Sans-Serif;
   font-weight: 300;
   line-height: 22px;
   margin: 0 auto;
 }
 
-.container1 {
+.container_1 {
   width: 80%;
   margin: 0 auto;
 }
 
-header !important {
-  background: #f2f2f2;
+.main_header {
+  background: #55d6aa;
+  border-radius: 5px;
 }
 
-/* * {
-  box-sizing: border-box;
-} */
+.main_header::after {
+  content: ' ';
+  display: table;
+  clear: both;
+}
 
-/* input[type=text], select, textarea {
+.logo {
+  float: left;
+  padding: 10px 0;
+  width: 15%;
+  height: 15%;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+  position: relative;
+}
+
+nav ul > li > a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav ul > li > a:hover {
+  color: #000;
+}
+
+nav ul > li > a::before {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 0%;
+  background-color: #444;
+  position: absolute;
+  top: 0;
+  transition: all ease-in-out 250ms;
+}
+
+nav ul > li > a:hover::before {
+  width: 100%;
+}
+
+/* styling the table in team show page  */
+
+table {
+  width: 400px; 
+}
+
+
+/* Edit player css  */
+
+ * {
+  box-sizing: border-box;
+}
+
+ input[type=text], select, textarea {
   width: 80%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -64,18 +130,19 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
-/* .row:after {
+Clear floats after the columns */
+
+.row:after {
   content: "";
   display: table;
   clear: both;
-} */
+}
 
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-/* @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
-} */
+}
