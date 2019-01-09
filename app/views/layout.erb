@@ -19,11 +19,13 @@
         <nav>
           <ul class="main_navbar">
             <li id="main_navbar_li"><a class="active" href="/">Home</a></li>
-            <li id="main_navbar_li"><a href="/users/signup">Sign Up</a></li>
-            <li id="main_navbar_li"><a href="/users/login">Log In</a></li>
             <% if logged_in? %>
               <% @user = current_user%>
               <li id ="main_navbar_li"><a href="/users/<%=@user.slug%>"> My Team </a> </li>
+              <li id ="main_navbar_li"><a href="/logout"> Logout </a></li>
+            <% else %>
+              <li id="main_navbar_li"><a href="/users/login">Log In</a></li>
+              <li id="main_navbar_li"><a href="/users/signup">Sign Up</a></li>
             <%end%>
           </ul>
         </nav>
