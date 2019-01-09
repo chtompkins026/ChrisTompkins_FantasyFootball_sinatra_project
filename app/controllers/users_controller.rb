@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/users/login' do
+  get '/login' do
     if logged_in?
       redirect '/team'
     else
@@ -54,17 +54,16 @@ class UsersController < ApplicationController
        session[:user_id] = user.id
        redirect '/team'
      else
+       flash[:error] = "You username and password are incorrect. Please try again"
        redirect '/login'
      end
   end
 
   get '/logout' do
-    if logged_in?
-      session.destroy
-      erb :'users/login'
-    else
-      redirect to '/'
-    end
+
+    session.destroy
+    redirect to '/'
+
   end
 
 end #end of the user class

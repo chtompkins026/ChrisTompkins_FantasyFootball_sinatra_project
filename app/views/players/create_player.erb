@@ -1,7 +1,7 @@
-
 <% if flash[:error]%>
-    <h2> <%=flash[:error]%> </h2>
+    <h2 class ="flash"> <%=flash[:error]%> </h2>
 <% end %>
+
     <h3> Create a Player</h3>
     <div class="creation">
       <form method="post" action="/team/new">
