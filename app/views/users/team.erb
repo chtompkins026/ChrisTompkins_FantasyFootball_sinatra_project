@@ -5,18 +5,35 @@
   </head>
   <body>
 
-    Welcome, <%=@user.username%>
-    <%@players.each_with_index do |player, index|%>
-      <p> <%= index + 1%> - <%=player.position %>: <a href="/team/<%=player.id%>"><%=player.name%></a></p>
+    <h1> Welcome, <%=@user.username.titleize%> </h1>
 
-      <p><a href="/team/<%=player.id%>/edit"> Edit Player </a></p>
-      
-      <br>
-      <form method="post" action="/team/<%=player.id%>/delete">
-        <input type="submit" value="Delete Player">
-      </form>
-      <br>
-    <%end%>
+    <table class="table table-hover players">
+      <thead>
+        <tr>
+          <th> No. </th>
+          <th> Name </th>
+          <th> Team </th>
+          <th> Position </th>
+          <th> Edit Player </th>
+          <th> Delete Player </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%@players.each_with_index do |player, index|%>
+          <tr>
+            <td> <%= index + 1%> </td>
+            <td> <a href="/team/<%=player.id%>"><%=player.name%></a> </td>
+            <td> <%= player.team %>  </td>
+            <td> <%=player.position %> </td>
+            <td> <a href="/team/<%=player.id%>/edit"> Edit Player </a></td>
+            <td> <form method="post" action="/team/<%=player.id%>/delete">
+              <input type="submit" value="Delete Player">
+            </form> </td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
 
     <p><a href="/team/new"> Create Player </a></p>
 

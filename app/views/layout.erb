@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -8,16 +8,25 @@
 
     <title>Fantasy Football Center</title>
   </head>
+
   <body>
-    <ul class="main_navbar">
-      <li id="main_navbar_li"><a class="active" href="/">Home</a></li>
-      <li id="main_navbar_li"><a href="/users/signup">Sign Up</a></li>
-      <li id="main_navbar_li"><a href="/users/login">Log In</a></li>
-      <% if logged_in? %>
-        <% @user = current_user%>
-        <li id ="main_navbar_li"><a href="/users/<%=@user.slug%>"> My Team </a> </li>
-      <%end%>
-    </ul>
+
+    <header>
+      <div class="container1">
+        <img src="/images/fantasy_football_logo.png" alt="logo" class="logo">
+        <nav>
+          <ul class="main_navbar">
+            <li id="main_navbar_li"><a class="active" href="/">Home</a></li>
+            <li id="main_navbar_li"><a href="/users/signup">Sign Up</a></li>
+            <li id="main_navbar_li"><a href="/users/login">Log In</a></li>
+            <% if logged_in? %>
+              <% @user = current_user%>
+              <li id ="main_navbar_li"><a href="/users/<%=@user.slug%>"> My Team </a> </li>
+            <%end%>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <%= yield %>
 
