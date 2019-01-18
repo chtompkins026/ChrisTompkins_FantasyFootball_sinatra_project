@@ -8,6 +8,26 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/users/login' do
+    if logged_in?
+      redirect '/team'
+    else
+      erb :'users/login'
+    end
+  end
+
+  post '/users/login' do
+     user = User.find_by(:username => params[:username])
+
+     if user && user.authenticate(params[:password])
+       session[:user_id] = user.id
+       redirect '/team'
+     else
+       flash[:error] = "Your username and password are incorrect. Please try again"
+       redirect '/login'
+     end
+  end
+
   get '/users/:slug' do
     if logged_in?
       @user = current_user
@@ -39,25 +59,7 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/login' do
-    if logged_in?
-      redirect '/team'
-    else
-      erb :'users/login'
-    end
-  end
 
-  post '/users/login' do
-     user = User.find_by(:username => params[:username])
-
-     if user && user.authenticate(params[:password])
-       session[:user_id] = user.id
-       redirect '/team'
-     else
-       flash[:error] = "You username and password are incorrect. Please try again"
-       redirect '/login'
-     end
-  end
 
   get '/logout' do
 

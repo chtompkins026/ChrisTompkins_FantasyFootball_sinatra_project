@@ -34,6 +34,12 @@
       </div>
     </header>
 
+    <% if flash[:error]%>
+        <h2 class ="flash"> <%=flash[:error]%> </h2>
+    <% elsif flash[:success] %>
+      <h2 class ="flash"> <%=flash[:success]%> </h2>
+    <% end %>
+
     <%= yield %>
 
   </body>

@@ -1,10 +1,6 @@
-<% if flash[:error]%>
-    <h2 class ="flash"> <%=flash[:error]%> </h2>
-<% end %>
-
-    <h3> Create a Player</h3>
+  <h3> Create a Player</h3>
     <div class="creation">
-      <form method="post" action="/team/new">
+      <form class="container_1" method="post" action="/team/new">
         <div class="row">
           <div class="col-25">
             <label for="name"> Name: </label>
@@ -55,7 +51,7 @@
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="position">position</label>
+            <label for="position"> Position</label>
           </div>
           <div class="col-75">
             <select id="position" name="position">

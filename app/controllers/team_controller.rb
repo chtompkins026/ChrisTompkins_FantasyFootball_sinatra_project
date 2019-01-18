@@ -24,7 +24,7 @@ class TeamController < ApplicationController
     @user.players.push(new_player)
 
     unless new_player.valid?
-      flash[:error] = "Duplicate player can not be added"
+      flash[:error] = "#{new_player.errors.full_messages.join}"
       redirect to '/team/new'
     else
       flash[:success] = "#{new_player.name} was successfully added"

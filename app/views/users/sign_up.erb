@@ -1,9 +1,5 @@
-  <% if flash[:error]%>
-      <h2 class ="flash"> <%=flash[:error]%> </h2>
-    <% end %>
-
     <h1>Hey, Footballer! You Can Sign Up Here!</h1>
-      <form method="post" action="/users/signup">
+      <form class="container_1" method="post" action="/users/signup">
 
       <label for="email"> Email: </label>
       <input type="text" id="email" name="email">
@@ -12,10 +8,10 @@
       <input type="text" id="username" name="username">
 
       <label for="password"> password: </label>
-      <input type="text" id="password" name="password">
+      <input type="password" id="password" name="password">
 
       <label for="password_confirm"> confirm password: </label>
-      <input type="text" id="password_confirm" name="password_confirm">
+      <input type="password" id="password_confirm" name="password_confirm">
 
       <input type="submit" value="Create Footballer Account" id="submit">
     </form>
