@@ -1,3 +1,10 @@
+<% if flash[:error]%>
+    <h2 class ="flash"> <%=flash[:error]%> </h2>
+<% elsif flash[:success] %>
+  <h2 class ="flash"> <%=flash[:success]%> </h2>
+<% end %>
+
+
 <h1> Welcome, <%=@user.username.titleize%> </h1>
 
     <table class="table table-hover players">
@@ -29,4 +36,3 @@
     </table>
 
     <p><a href="/team/new"> Create Player </a></p>
-    

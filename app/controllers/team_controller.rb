@@ -11,7 +11,11 @@ class TeamController < ApplicationController
   end
 
   get '/team/new' do
-    erb :'/players/create_player'
+    if logged_in?
+      erb :'/players/create_player'
+    else
+      redirect '/users/login'
+    end
   end
 
   post '/team/new' do
@@ -23,6 +27,7 @@ class TeamController < ApplicationController
       flash[:error] = "Duplicate player can not be added"
       redirect to '/team/new'
     else
+      flash[:success] = "#{new_player.name} was successfully added"
       redirect to '/team'
     end
   end
