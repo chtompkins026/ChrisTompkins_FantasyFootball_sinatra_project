@@ -28,5 +28,3 @@ class ApplicationController < Sinatra::Base
     end  #end of helpers
 
 end #end of the Application class
-
-#test 123
