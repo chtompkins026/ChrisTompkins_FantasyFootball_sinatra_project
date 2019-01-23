@@ -1,27 +1,27 @@
 class UsersController < ApplicationController
 
-  get '/users/signup' do
+  get '/signup' do
     if logged_in?
-      redirect '/team'
+      redirect '/players'
     else
-      erb :'/users/sign_up'
+      erb :'/users/new'
     end
   end
 
-  get '/users/login' do
+  get '/login' do
     if logged_in?
-      redirect '/team'
+      redirect '/players'
     else
-      erb :'users/login'
+      erb :'users/index'
     end
   end
 
-  post '/users/login' do
+  post '/login' do
      user = User.find_by(:username => params[:username])
 
      if user && user.authenticate(params[:password])
        session[:user_id] = user.id
-       redirect '/team'
+       redirect '/players'
      else
        flash[:error] = "Your username and password are incorrect. Please try again"
        redirect '/login'
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       @user = current_user
       if @user = User.find_by_slug(params[:slug])
         @players = @user.players
-        redirect '/team'
+        redirect '/players'
       else
         flash[:error] = "You must be logged in to view your football page"
         redirect '/login'
@@ -44,21 +44,17 @@ class UsersController < ApplicationController
     end
   end
 
-  post '/users/signup' do
-    if params["username"].empty?
-      flash[:error] = "Username is empty" #store keys and strings that will be passed into next page (dictionary already made for me)
-      redirect "/signup"
-    elsif params["email"].empty?
-      flash[:error] = "Email is empty"
+  post '/signup' do
+    @user = User.new(:email => params[:email], :username => params[:username], :password => params[:password])
+    unless @user.valid?
+      flash[:error] = "#{@user.errors.full_messages.join(". ")}"
       redirect "/signup"
     else
-      @user = User.new(:email => params[:email], :username => params[:username], :password => params[:password])
       @user.save
       session[:user_id] = @user.id
-      redirect '/team'
+      redirect '/players'
     end
   end
-
 
 
   get '/logout' do

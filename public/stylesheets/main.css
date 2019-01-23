@@ -6,6 +6,13 @@ body {
   margin: 0 auto;
 }
 
+.flash_container h4{
+  font-family: Sans-Serif;
+  color: red;
+  border: 2px;
+  border-color: red;
+}
+
 .footer_main {
   display: block;
   position: fixed;
@@ -239,9 +246,9 @@ tr:nth-child(odd) {
 
 /* Edit player css  */
 
- * {
+ /* * {
   box-sizing: border-box;
-}
+} */
 
  input[type=text], select, textarea {
   width: 80%;

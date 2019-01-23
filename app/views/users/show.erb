@@ -16,11 +16,11 @@
         <%@players.each_with_index do |player, index|%>
           <tr>
             <td> <%= index + 1%> </td>
-            <td> <a href="/team/<%=player.id%>"><%=player.name%></a> </td>
+            <td> <a href="/players/<%=player.id%>"><%=player.name%></a> </td>
             <td> <%= player.team %>  </td>
             <td> <%=player.position %> </td>
-            <td> <a href="/team/<%=player.id%>/edit"> Edit Player </a></td>
-            <td> <form method="post" action="/team/<%=player.id%>/delete">
+            <td> <a href="/players/<%=player.id%>/edit"> Edit Player </a></td>
+            <td> <form method="post" action="/players/<%=player.id%>/delete">
               <input type="submit" value="Delete Player">
             </form> </td>
           </tr>
@@ -28,4 +28,4 @@
       </tbody>
     </table>
 
-    <p><a href="/team/new"> Create Player </a></p>
+    <p><a href="/players/new"> Create Player </a></p>

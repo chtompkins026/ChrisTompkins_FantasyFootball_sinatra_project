@@ -25,8 +25,8 @@
               <li id ="main_navbar_li"><a href="/users/<%=@user.slug%>"> My Team </a> </li>
               <li id ="main_navbar_li"><a href="/logout"> Logout </a></li>
             <% else %>
-              <li id="main_navbar_li"><a href="/users/login">Log In</a></li>
-              <li id="main_navbar_li"><a href="/users/signup">Sign Up</a></li>
+              <li id="main_navbar_li"><a href="/login">Log In</a></li>
+              <li id="main_navbar_li"><a href="/signup">Sign Up</a></li>
             <%end%>
           </ul>
         </nav>
@@ -34,17 +34,19 @@
       </div>
     </header>
 
+  <div class="flash_container">
     <% if flash[:error]%>
-        <h2 class ="flash"> <%=flash[:error]%> </h2>
+        <h4 class="flash"> <%=flash[:error]%> </h4>
     <% elsif flash[:success] %>
-      <h2 class ="flash"> <%=flash[:success]%> </h2>
+      <h4 class="special-flash"> <%=flash[:success]%> </h4>
     <% end %>
+  </div>
 
     <%= yield %>
 
   </body>
 
-  <footer class ="footer_main">
+  <footer class="footer_main">
     <p>Created by Juggernaut Group</p>
     <p>Contact information: <a href="mailto:someone@example.com">
     juggernaut@example.com</a>.</p>
