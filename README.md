@@ -14,7 +14,9 @@ Welcome to the Fantasy Football Sinatra Project. Here you can keep track of play
 7) You should now see your player added to your personal page
 8) When a player is added, you now have the option to edit and/or delete that player
 
-It's as simple as that!
+It's as simple as that! If you want to see how this app should be used, you can watch this demo here:
+
+chrome-extension://bpconcjcammlapcogcnnelfmaeghhagj/edit.html?video
 
 ##License Copyright 2019 Chris Tompkins
 
